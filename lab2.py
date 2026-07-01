@@ -25,7 +25,7 @@ def draw(screen):
     #
     # ---------------- TODO ----------------
 
-    display = text[:cursor]+"|"+text[cursor:]
+    display = text[:cursor]+ "|" +text[cursor:]
 
     # ----------------------------------------
 
