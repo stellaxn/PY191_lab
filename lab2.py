@@ -178,7 +178,7 @@ def main(screen):
         elif 32 <= key <= 126:
             if cursor > 0:
                 cursor += 1
-            display = text[0:cursor] + key + text[cursor:]
+            display = text[0:cursor] + chr(key) + text[cursor:]
 
         # ----------------------------------------
 
