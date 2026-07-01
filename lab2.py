@@ -72,7 +72,7 @@ def main(screen):
         elif key == curses.KEY_LEFT:
             if cursor >0:
                 cursor -= 1
-            display = text[0:cursor] + "|" + text[cursor:len(text)]
+            display = text[0:cursor] + "|" + text[cursor:]
 
         # ----------------------------------------
 
@@ -98,7 +98,7 @@ def main(screen):
         elif key == curses.KEY_RIGHT:
             if cursor > 0:
                 cursor += 1
-            display = text[0:cursor] + "|" + text[cursor:len(text)]
+            display = text[0:cursor] + "|" + text[cursor:]
 
         # ----------------------------------------
 
@@ -124,7 +124,7 @@ def main(screen):
         elif key in (8, 127, curses.KEY_BACKSPACE):
             if cursor > 0:
                 cursor -= 1
-            display = text[0:cursor-1]+"|"+text[cursor:len(text)]
+            display = text[0:cursor-1]+"|"+text[cursor:]
 
         # ----------------------------------------
 
@@ -150,7 +150,7 @@ def main(screen):
         elif key == 10:
             if cursor > 0:
                 cursor += 1
-            display = text[0:cursor] +"\n|" + text[cursor:len(text)]
+            display = text[0:cursor] +"\n|" + text[cursor:]
 
         # ----------------------------------------
 
@@ -178,7 +178,7 @@ def main(screen):
         elif 32 <= key <= 126:
             if cursor > 0:
                 cursor += 1
-            display = text[0:cursor] + key + text[cursor:len(text)]
+            display = text[0:cursor] + key + text[cursor:]
 
         # ----------------------------------------
 
