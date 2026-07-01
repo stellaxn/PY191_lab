@@ -25,7 +25,7 @@ def draw(screen):
     #
     # ---------------- TODO ----------------
 
-    display = "|"+text
+    display = text[:cursor]+"|"+text[cursor:]
 
     # ----------------------------------------
 
@@ -96,7 +96,7 @@ def main(screen):
         # ---------------- ANSWER ----------------
 
         elif key == curses.KEY_RIGHT:
-            if cursor > 0:
+            if cursor < len(text):
                 cursor += 1
             display = text[0:cursor] + "|" + text[cursor:]
 
@@ -123,8 +123,9 @@ def main(screen):
 
         elif key in (8, 127, curses.KEY_BACKSPACE):
             if cursor > 0:
+                text=text[:cursor - 1] + text[cursor:]
                 cursor -= 1
-            display = text[0:cursor-1]+"|"+text[cursor:]
+            display = text[0:cursor]+"|"+text[cursor:]
 
         # ----------------------------------------
 
@@ -148,9 +149,9 @@ def main(screen):
         # ---------------- ANSWER ----------------
 
         elif key == 10:
-            if cursor > 0:
-                cursor += 1
-            display = text[0:cursor] +"\n|" + text[cursor:]
+            text=text[:cursor] + "\n" + text[cursor:]
+            cursor += 1
+            display = text[0:cursor] +"|" + text[cursor:]
 
         # ----------------------------------------
 
@@ -176,9 +177,9 @@ def main(screen):
         # ---------------- ANSWER ----------------
 
         elif 32 <= key <= 126:
-            if cursor > 0:
-                cursor += 1
-            display = text[0:cursor] + chr(key) + text[cursor:]
+            text = text[:cursor] + chr(key) + text[cursor:]
+            cursor += 1
+            display = text[0:cursor] + "|"+ text[cursor:]
 
         # ----------------------------------------
 
